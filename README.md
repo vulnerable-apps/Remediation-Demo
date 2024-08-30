@@ -24,10 +24,10 @@ wget http://127.0.0.1:5000/.env
 ## Local Setup
 
 ```
-nightvision app create -n remediation-demo
-nightvision target create -n remediation-demo -u http://127.0.0.1:5000 --type api
+nightvision app create remediation-demo
+nightvision target create remediation-demo http://127.0.0.1:5000 --type api
 nightvision swagger extract ./ -t remediation-demo --lang python 
 pip install -r requirements.txt
 python app.py
-nightvision scan -t remediation-demo -a remediation-demo
+nightvision scan remediation-demo -a remediation-demo
  ```
