@@ -1,17 +1,17 @@
-# start by pulling the python image
+# Start by pulling the Python image
 FROM python:3.11-alpine
 
-# copy the requirements file into the image
-COPY ./ /app/
-
-# switch working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# install the dependencies and packages in the requirements file
+# Copy only the requirements file into the image
+COPY requirements.txt /app/
+
+# Install the dependencies
 RUN pip install -r requirements.txt
 
-# configure the container to run in an executed manner
-ENV FLASK_APP=app.py
+# Expose port 5000 for Flask
 EXPOSE 5000
-ENTRYPOINT [ "python" ]
-CMD ["app.py"]
+
+# Set the command to run your application
+CMD ["python", "app.py"]
